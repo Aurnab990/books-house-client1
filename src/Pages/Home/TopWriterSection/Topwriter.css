@@ -1,0 +1,32 @@
+.slider {
+    display: flex;
+    overflow: hidden;
+    position: relative;
+    width: 100%; /* Adjust as needed */
+  }
+  
+  .slider .avatar {
+    flex: 0 0 20%; /* Ensure 5 images are shown, adjust based on container width */
+    transition: transform 1s;
+  }
+  
+  .slider .avatar:nth-child(1) {
+    transform: translateX(0);
+  }
+  
+  .slider .avatar:nth-child(2) {
+    transform: translateX(-100%);
+  }
+  
+  .slider .avatar:nth-child(3) {
+    transform: translateX(-200%);
+  }
+  
+  .slider .avatar:nth-child(4) {
+    transform: translateX(-300%);
+  }
+  
+  .slider .avatar:nth-child(5) {
+    transform: translateX(-400%);
+  }
+  
