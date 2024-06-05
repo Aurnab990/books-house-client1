@@ -1,4 +1,4 @@
-# 📚 Books Store Web App
+# 📚 Books House Web App
 
 Welcome to the Books Store Web App! This project is a comprehensive web application that allows users to manage their book collections. Users can add, edit, and delete books, update their personal information, and search for books. The app is built with a modern tech stack to ensure a seamless and responsive user experience.
 
