@@ -9,6 +9,7 @@ Check out the live version of the app [here](https://books-store-f614a.web.app/)
 
 ### Frontend
 - **React.js**: For building user interfaces.
+- **Chart.js**: For building a chart for the dashboard.
 - **React Hooks**: For managing state and lifecycle.
 - **React Router**: For navigation and routing.
 - **TailwindCSS**: For styling.
