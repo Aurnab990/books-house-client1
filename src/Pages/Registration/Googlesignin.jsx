@@ -13,7 +13,7 @@ const Googlesignin = () => {
                     email: data?.user?.email,
                     name: data?.user?.displayName
                 }
-                fetch("http://localhost:3000/user", {
+                fetch("https://books-house-server1.onrender.com/user", {
                     method: "POST",
                     headers: {
                         "Content-type": "application/json"

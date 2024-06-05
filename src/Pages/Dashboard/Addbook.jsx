@@ -16,7 +16,7 @@ const Addbook = () => {
         
         const booksData = {name, author, description, price, stocks, image};
 
-        fetch('http://localhost:3000/books', {
+        fetch('https://books-house-server1.onrender.com/books', {
             method: 'POST',
             headers: {
                 'Content-type': 'application/json',

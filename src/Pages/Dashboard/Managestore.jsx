@@ -6,9 +6,10 @@ import { Link } from 'react-router-dom';
 
 const Managestore = () => {
     const [books, setBooks] = useState([]);
+    const [searchTerm, setSearchTerm] = useState('');
 
     useEffect(() => {
-        fetch("http://localhost:3000/books")
+        fetch("https://books-house-server1.onrender.com/books")
             .then(res => res.json())
             .then(data => setBooks(data));
     }, []);
@@ -16,7 +17,7 @@ const Managestore = () => {
     const handleDelete = id => {
         const proceed = window.confirm("Are you sure to Delete?");
         if (proceed) {
-            const url = `http://localhost:3000/books/${id}`;
+            const url = `https://books-house-server1.onrender.com/books/${id}`;
             fetch(url, {
                 method: "DELETE"
             })
@@ -28,15 +29,28 @@ const Managestore = () => {
         }
     };
 
+    const filteredBooks = books.filter(book =>
+        book.name.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+
     return (
         <div>
             <div className="drawer lg:drawer-open">
                 <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
                 <div className="drawer-content flex flex-col p-5">
-                    {/* Page content here */}
+                   
                     <h1 className="text-3xl font-bold mb-5">Manage Store</h1>
+
+                    <input
+                        type="text"
+                        placeholder="Search by books name"
+                        value={searchTerm}
+                        onChange={e => setSearchTerm(e.target.value)}
+                        className="border w2/4 border-gray-300 rounded-lg p-2 mb-4"
+                    />
+
                     <div className="grid gap-4">
-                        {books.map(book => (
+                        {filteredBooks.map(book => (
                             <div key={book._id} className="grid grid-cols-7 gap-4 p-4 border rounded-lg shadow-lg bg-white">
                                 <img className="w-20 h-20 object-cover" src={book.image} alt={book.name} />
                                 <div className="col-span-2 flex flex-col justify-center">

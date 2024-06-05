@@ -21,13 +21,13 @@ const Sidebar = () => {
                         </a>
                     </li>
                 </Link>
-                <Link className='font-bold text-lg mb-4 hover:bg-orange-500 transition duration-300 rounded-lg' to={"/dashboard/profile/edit"}>
+                {/* <Link className='font-bold text-lg mb-4 hover:bg-orange-500 transition duration-300 rounded-lg' to={"/dashboard/profile/edit"}>
                     <li>
                         <a className="flex items-center p-3">
                             <FontAwesomeIcon icon={faEdit} className="mr-3" /> Edit Profile
                         </a>
                     </li>
-                </Link>
+                </Link> */}
                 <Link className='font-bold text-lg mb-4 hover:bg-orange-500 transition duration-300 rounded-lg' to={"/dashboard/addbooks"}>
                     <li>
                         <a className="flex items-center p-3">

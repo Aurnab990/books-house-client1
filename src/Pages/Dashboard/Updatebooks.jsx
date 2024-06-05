@@ -1,7 +1,9 @@
 import React from 'react';
 import Sidebar from './Sidebar';
+import { useParams } from 'react-router-dom';
 
 const Updatebooks = () => {
+    const {id} = useParams();
     const handleSubmit = async(e) =>{
         e.preventDefault();
         const form = e.target;
@@ -10,6 +12,20 @@ const Updatebooks = () => {
         const stocks = form.stocks.value;
 
         const data = {name,price,stocks};
+
+        fetch(`https://books-house-server1.onrender.com/books/${id}`, {
+            method: 'PUT', // or 'POST'
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data)
+        })
+            .then(res => res.json())
+            .then(data => {
+                alert("Update Successfully", data);
+                e.target.reset();
+
+            })
 
         
     }
@@ -20,7 +36,7 @@ const Updatebooks = () => {
                 <div className="drawer-content flex flex-col items-center p-6 bg-gray-100 min-h-screen">
                     <h1 className="text-4xl font-semibold text-orange-600 mt-12 mb-6">Update Books Information</h1>
 
-                    <form className="w-full max-w-lg bg-white p-6 rounded-lg shadow-lg space-y-4">
+                    <form onSubmit={handleSubmit} className="w-full max-w-lg bg-white p-6 rounded-lg shadow-lg space-y-4">
                         <div className="form-control">
                             <label className="label font-semibold">Book Name</label>
                             <input type="text" name="name" className="input input-bordered w-full" placeholder="User Name" required />

@@ -10,6 +10,7 @@ import Updateuserprofile from "../Pages/Dashboard/Updateuserprofile";
 import Allbooks from "../Pages/Home/Allbooks/Allbooks";
 import PrivateRoute from "./Private/PrivateRoute";
 import Updatebooks from "../Pages/Dashboard/Updatebooks";
+import Newbookspage from "../Pages/BookPage/Newbookspage";
 
 
 export const router = createBrowserRouter([
@@ -17,7 +18,7 @@ export const router = createBrowserRouter([
     {
         path: "/",
         element: <Home></Home>,
-        loader:()=>fetch("http://localhost:3000/books")
+        loader:()=>fetch("https://books-house-server1.onrender.com/books")
         
     },
     {
@@ -56,8 +57,11 @@ export const router = createBrowserRouter([
         
     },
     {
-        path: "dashboard/profile/edit",
-        element: <Updateuserprofile></Updateuserprofile>
+        path: "/profile/:id",
+        element: <Updateuserprofile></Updateuserprofile>,
+        loader: ({params})=>fetch(`https://books-house-server1.onrender.com/user/${params.id}`)
+        
+        
     },
     {
         path: "/allbooks",
@@ -67,7 +71,12 @@ export const router = createBrowserRouter([
     {
         path: "/dashboard/update/:id",
         element: <Updatebooks></Updatebooks>,
-        loader: ({params})=>fetch(`http://localhost:3000/books/${params.id}`)
+        loader: ({params})=>fetch(`https://books-house-server1.onrender.com/books/${params.id}`)
+    },
+    {
+        path: "/newbooks",
+        element: <Newbookspage></Newbookspage>,
+        loader:()=>fetch("https://books-house-server1.onrender.com/books")
     }
 
 ])
