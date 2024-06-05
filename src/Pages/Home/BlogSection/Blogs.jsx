@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import '../BlogSection/Blogs.css'; 
 
 const blogs = [
   {
     src: "https://i0.wp.com/thenerddaily.com/wp-content/uploads/2022/12/Iris-Yamashita-Author-Interview.jpg?fit=1000%2C742&ssl=1",
     title: "City Under the Roof",
     category: "Misterias Clark",
-    date: "28 Dec 2023S",
+    date: "28 Dec 2023",
     description: "Sed ut perspiciatis unde omnis iste natus error sit sed quia consequuntur magni voluptatem doloremque."
   },
   {
@@ -49,30 +48,32 @@ const Blogs = () => {
   ];
 
   return (
-    <div className="slider-container">
-      <div className="slider">
-        {currentBlogs.map((blog, idx) => (
-          <div className="blog-card" key={idx}>
-            <img src={blog.src} className="object-cover w-full h-64" alt={blog.title} />
-            <div className="p-5 border border-t-0">
-              <p className="mb-3 text-xs font-semibold tracking-wide uppercase">
-                <a href="/" className="transition-colors duration-200 text-blue-gray-900 hover:text-deep-purple-accent-700" aria-label="Category" title={blog.category}>
-                  {blog.category}
+    <div className="flex flex-col items-center bg-gray-100 min-h-screen py-6">
+      <div className="max-w-4xl w-full">
+        <div className="flex flex-col md:flex-row gap-6 overflow-hidden">
+          {currentBlogs.map((blog, idx) => (
+            <div key={idx} className="w-full bg-white rounded-lg shadow-lg transform transition-transform hover:scale-105 duration-300">
+              <img src={blog.src} className="w-full h-48 md:h-64 object-cover rounded-t-lg" alt={blog.title} />
+              <div className="p-5">
+                <p className="mb-3 text-xs font-semibold tracking-wide uppercase text-gray-700">
+                  <a href="/" className="text-blue-600 hover:text-blue-800" aria-label="Category" title={blog.category}>
+                    {blog.category}
+                  </a>
+                  <span className="text-gray-600"> — {blog.date}</span>
+                </p>
+                <a href="/" aria-label="Category" title={blog.title} className="block mb-3 text-2xl font-bold leading-5 text-gray-900 hover:text-blue-800">
+                  {blog.title}
                 </a>
-                <span className="text-gray-600">— {blog.date}</span>
-              </p>
-              <a href="/" aria-label="Category" title={blog.title} className="inline-block mb-3 text-2xl font-bold leading-5 transition-colors duration-200 hover:text-deep-purple-accent-700">
-                {blog.title}
-              </a>
-              <p className="mb-2 text-gray-700">
-                {blog.description}
-              </p>
-              <a href="/" aria-label="" className="inline-flex items-center font-semibold transition-colors duration-200 text-deep-purple-accent-400 hover:text-deep-purple-800">
-                Learn more
-              </a>
+                <p className="mb-2 text-gray-700">
+                  {blog.description}
+                </p>
+                <a href="/" aria-label="" className="inline-flex items-center font-semibold text-blue-600 hover:text-blue-800">
+                  Learn more
+                </a>
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </div>
   );

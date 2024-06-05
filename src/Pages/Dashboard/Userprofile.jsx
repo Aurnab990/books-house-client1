@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 
 const Userprofile = () => {
   const { user } = useAuth();
+  // console.log(user);
   const [userInfo, setUserInfo] = useState([]);
   const [specificData, setSpecificData] = useState(null);
 
@@ -40,7 +41,7 @@ const Userprofile = () => {
     <div className="flex justify-center mb-4">
       <div className="avatar online">
         <div className="w-24 rounded-full border-4 border-primary">
-          <img src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" alt="User avatar" />
+          <img src={user.photoURL} alt="User avatar" />
         </div>
       </div>
     </div>

@@ -8,6 +8,7 @@ import Topwriter from './TopWriterSection/Topwriter';
 import Blogs from './BlogSection/Blogs';
 import Reveiw from './ReveiwSection/Reveiw';
 import Extraheader from './ExtraHeaderSection/Extraheader';
+import Faqsection from '../FAQsection/Faqsection';
 
 const Home = () => {
     const books = useLoaderData()
@@ -22,6 +23,7 @@ const Home = () => {
            <h1 className='text-center text-red-500 font-bold text-3xl mt-10 mb-8'>TOP TRANDING</h1>
            <Blogs></Blogs>
            <Reveiw></Reveiw>
+           <Faqsection></Faqsection>
            <Footer></Footer>
         </div>
     );

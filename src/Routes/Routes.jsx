@@ -11,6 +11,8 @@ import Allbooks from "../Pages/Home/Allbooks/Allbooks";
 import PrivateRoute from "./Private/PrivateRoute";
 import Updatebooks from "../Pages/Dashboard/Updatebooks";
 import Newbookspage from "../Pages/BookPage/Newbookspage";
+import About from "../Pages/AboutPage/About";
+import Contact from "../Pages/ContactPage/Contact";
 
 
 export const router = createBrowserRouter([
@@ -77,6 +79,14 @@ export const router = createBrowserRouter([
         path: "/newbooks",
         element: <Newbookspage></Newbookspage>,
         loader:()=>fetch("https://books-house-server1.onrender.com/books")
+    },
+    {
+        path: "/about",
+        element: <About></About>
+    },
+    {
+        path: "/contact",
+        element: <Contact></Contact>
     }
 
 ])
